@@ -1,0 +1,46 @@
+<h1>Add a Recipe</h1>
+
+
+<form action="/dishes/<%=@dish.id%>/new/recipes" method="post">
+  <div class="form-group">
+    <label for="recipe_name">Name</label>
+    <input type="text" name="recipe_name" class="form-control" placeholer="e.g. Chicken Stir Fry">
+  </div>
+  <div class="form-group">
+    <label for="recipe_category">Category</label>
+    <input type="text" name="recipe_category" class="form-control"  placeholer="e.g. Italian">
+  </div>
+  <div class="form-group">
+    <label for="recipe_rating">Rating</label>
+    <input type="text" name="recipe_rating" class="form-control"  placeholer="e.g. 1-5">
+  </div>
+  <div class="form-group">
+    <label for="recipe_ingredients[]">Ingredient Name</label>
+    <div id="ingredients">
+    <input type="text" name="recipe_ingredients[]" class="form-control"  placeholer="e.g. Chicken">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="recipe_measurements[]">Measurement</label>
+    <input type="text" name="recipe_measurements[]" class="form-control"  placeholer="e.g. 3 cups">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+<button id="add_ingredient">Add Another Ingredient!</button>
+
+<a href="/">Home</a>
+
+<script>
+$(document).ready(function(){
+  html_first = '<input type="text" name="recipe_ingredients[]" class="form-control" id="ingredients_';
+  html_last = '"  placeholer="e.g. Chicken">';
+  counter = 1;
+  $('#add_ingredient').click(function(){
+    counter += 1;
+    $("#ingredients").append(html_first + counter + html_last);
+  });
+});
+</script>

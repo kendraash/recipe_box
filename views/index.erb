@@ -1,0 +1,10 @@
+<h1>Recipe Box</h1>
+
+<h2>Dishes:</h2>
+<ul>
+  <% @dishes.each do |dish| %>
+  <li><a href="/dishes/<%=dish.id%>"><%=dish.name%></a></li>
+  <%end%>
+</ul>
+
+<a href="/dishes/new">Add a new dish</a>

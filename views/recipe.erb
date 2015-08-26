@@ -1,0 +1,17 @@
+<h2><%= @recipe.name %></h2>
+
+<table class="table">
+  <tr>
+    <th>Ingredients</th>
+    <th>Measurement</th>
+  </tr>
+  <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= ingredient.name %></td>
+      <td><%= ingredient.measurement %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><strong>Category:</strong> <%= @recipe.category %></p>
+<p><strong>Rating:</strong> <%= @recipe.category %></p>
