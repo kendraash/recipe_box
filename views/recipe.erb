@@ -16,4 +16,6 @@
 <p><strong>Category:</strong> <%= @recipe.category %></p>
 <p><strong>Rating:</strong> <%= @recipe.category %></p>
 
-<a href="/recipe/<%=@recipe.id%>/edit">Edit Recipe</a>
+<a href="/recipes/<%=@recipe.id%>/edit" class='btn btn-primary'>Edit Recipe</a>
+<a href="/recipes/<%=@recipe.id%>/delete" class='btn btn-primary'>Delete Recipe</a>
+<a href="/" class='btn btn-primary'>Home</a>

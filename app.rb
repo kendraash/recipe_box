@@ -92,3 +92,10 @@ patch('/recipes/:id') do
   end
   redirect("/recipes/#{@recipe.id}")
 end
+
+get('/recipes/:id/delete') do
+  @recipe = Recipe.find(params['id'].to_i)
+  @dish = Dish.find(@recipe.dishes.first.id)
+  @dish.recipes.destroy(@recipe)
+  redirect("/dishes/#{@dish.id}")
+end
