@@ -1,0 +1,37 @@
+<h1>Edit: <%=@recipe.name%></h1>
+
+<form class="form-group" action="/recipes/<%=@recipe.id%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <div class="form-group">
+    <label for="recipe_name">Name</label>
+    <input type="text" name="recipe_name" class="form-control" value='<%=@recipe.name%>' placeholer="e.g. Chicken Stir Fry">
+  </div>
+  <div class="form-group">
+    <label for="recipe_category">Category</label>
+    <input type="text" name="recipe_category" class="form-control" value='<%=@recipe.category%>' placeholer="e.g. Italian">
+  </div>
+  <div class="form-group">
+    <label for="recipe_rating">Rating</label>
+    <input type="text" name="recipe_rating" class="form-control" value='<%=@recipe.rating%>' placeholer="e.g. 1-5">
+  </div>
+  <div class="form-group">
+    <label for="recipe_ingredients[]">Ingredient Name</label>
+    <div id="ingredients">
+      <%@recipe.ingredients.each do |ingredient|%>
+      <input type="text" name="recipe_ingredients[]" class="form-control" value='<%=ingredient.name%>' placeholer="e.g. Chicken">
+      <%end%>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="recipe_measurements[]">Measurement</label>
+    <div id="measurements">
+        <%@recipe.ingredients.each do |ingredient|%>
+        <input type="text" name="recipe_measurements[]" class="form-control" value='<%=ingredient.measurement%>' placeholer="e.g. 3 cups">
+        <%end%>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

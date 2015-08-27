@@ -24,7 +24,7 @@ end
 get('/dishes/:id') do
   @dish = Dish.find(params['id'].to_i)
   @recipes = @dish.recipes
-  # binding.pry
+
 
   erb(:dish)
 end
@@ -46,9 +46,9 @@ post('/dishes/:id/new/recipes') do
 
   recipe = Recipe.create({name: recipe_name, category: recipe_category, rating: recipe_rating})
   dish.recipes.push(recipe)
-  binding.pry
 
   ingredient_arr = []
+  counter = 0
   recipe_ingredients.each do |ingredient|
     ingredient_obj = Ingredient.create({ name: ingredient, measurement: recipe_measurements[counter], recipe_id: recipe.id})
     counter += 1
@@ -61,6 +61,34 @@ get('/recipes/:id') do
   recipe_id = params['id']
   @recipe = Recipe.find(recipe_id.to_i)
   @ingredients = @recipe.ingredients
-  binding.pry
   erb :recipe
+end
+
+get('/recipe/:id/edit') do
+  @recipe = Recipe.find(params['id'].to_i)
+  erb(:recipe_edit_form)
+end
+
+patch('/recipes/:id') do
+  @recipe = Recipe.find(params['id'].to_i)
+  recipe_name = params['recipe_name']
+  recipe_category = params['recipe_category']
+  recipe_rating = params['recipe_rating']
+
+  recipe_ingredients = params['recipe_ingredients']
+  recipe_measurements = params['recipe_measurements']
+
+  @recipe.update({name: recipe_name, category: recipe_category, rating: recipe_rating})
+
+  ingredient_arr = []
+  counter = 0
+  ingredients_remove = @recipe.ingredients
+  ingredients_remove.each do |ingred|
+    ingred.destroy
+  end
+  recipe_ingredients.each do |ingredient|
+    ingredient_obj = Ingredient.create({ name: ingredient, measurement: recipe_measurements[counter], recipe_id: @recipe.id})
+    counter += 1
+  end
+  redirect("/recipes/#{@recipe.id}")
 end
