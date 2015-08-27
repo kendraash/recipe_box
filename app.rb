@@ -74,7 +74,7 @@ get('/dishes/:id/delete') do
 end
 
 get('/recipes/all') do
-  @recipes = Recipe.all.sort{|recipe1, recipe2| recipe.rating1 <=> recipe.rating2}
+  @recipes = Recipe.all.sort{|recipe1, recipe2| recipe2.rating <=> recipe1.rating }
   erb(:recipes_by_rating)
 
 end
