@@ -7,6 +7,7 @@ require('pry')
 
 get('/') do
   @dishes = Dish.all
+  @ingredients = Ingredient.all
   # binding.pry
   erb(:index)
 end
@@ -98,4 +99,12 @@ get('/recipes/:id/delete') do
   @dish = Dish.find(@recipe.dishes.first.id)
   @dish.recipes.destroy(@recipe)
   redirect("/dishes/#{@dish.id}")
+end
+
+get('/ingredients/:id') do
+  @ingredient = Ingredient.find(params['id'].to_i)
+  binding.pry
+  @recipes = @ingredient.recipe
+
+  erb(:recipes_with_ingredient)
 end

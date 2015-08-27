@@ -8,3 +8,18 @@
 </ul>
 
 <a href="/dishes/new">Add a new dish</a>
+<br></br>
+
+<a href="/recipes/all" >View all recipes by rating</a>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Search recipes by ingredient
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <% @ingredients.each do |ingredient|%>
+      <li><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name %></a></li>
+    <% end %>
+  </ul>
+</div>
