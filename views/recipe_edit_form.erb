@@ -35,3 +35,22 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
+
+<button id="add_ingredient">Add Another Ingredient!</button>
+<br></br>
+<a href="/" class='btn btn-primary'>Home</a>
+
+<script>
+$(document).ready(function(){
+  html_first = '<input type="text" name="recipe_ingredients[]" class="form-control" id="ingredients_';
+  html_last = '"  placeholer="e.g. Chicken">';
+  html_first_m = '<input type="text" name="recipe_measurements[]" class="form-control" id="ingredients_';
+  html_last_m = '"  placeholer="e.g. Chicken">';
+  counter = 1;
+  $('#add_ingredient').click(function(){
+    counter += 1;
+    $("#ingredients").append(html_first + counter + html_last);
+    $("#measurements").append(html_first_m + counter + html_last_m);
+  });
+});
+</script>
