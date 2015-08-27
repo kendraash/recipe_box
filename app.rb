@@ -103,8 +103,8 @@ end
 
 get('/ingredients/:id') do
   @ingredient = Ingredient.find(params['id'].to_i)
+  @recipes = @ingredient.recipes
   binding.pry
-  @recipes = @ingredient.recipe
 
   erb(:recipes_with_ingredient)
 end

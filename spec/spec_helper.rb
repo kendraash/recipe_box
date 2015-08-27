@@ -6,6 +6,7 @@ set(:root, Dir.pwd())
 
 require("dish")
 require("recipe")
+require("ingredient")
 
 RSpec.configure do |config|
   config.after(:each) do
@@ -14,6 +15,9 @@ RSpec.configure do |config|
     end
     Recipe.all().each() do |recipe|
       recipe.destroy()
+    end
+    Ingredient.all().each() do |ingredient|
+      ingredient.destroy()
     end
   end
 end
