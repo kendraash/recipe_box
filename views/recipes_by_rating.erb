@@ -1,0 +1,10 @@
+<h1>Recipes by Rating</h1>
+
+
+<ul>
+  <%@recipes.each do |recipe|%>
+  <li> <a href="/recipes/<%= recipe.id %>"><%= recipe.name %>: <%= recipe.rating %></a></li>
+  <%end%>
+</ul>
+
+<a href="/" class="btn btn-primary">Home</a>

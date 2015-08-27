@@ -1,14 +1,15 @@
-<h1><%=@dish.name%></h1>
+<div class="text-center">
+  <h1><%=@dish.name%></h1>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-unstyled">
+    <% @recipes.each do |recipe| %>
+      <li>
+        <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+      </li>
+    <% end %>
+  </ul>
 
-<a href="/dishes/<%=@dish.id%>/delete" class="btn btn-primary">Delete</a>
-<a href="/dishes/<%=@dish.id%>/recipes/new">Add a Recipe</a><br>
-
-<a href="/">Home</a>
+  <a href="/dishes/<%=@dish.id%>/delete" class="btn btn-danger">Delete</a>
+  <a href="/dishes/<%=@dish.id%>/recipes/new" class="btn btn-warning">Add a Recipe</a>
+  <a href="/" class="btn btn-primary">Home</a>
+</div>

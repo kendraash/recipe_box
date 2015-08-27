@@ -1,27 +1,32 @@
-<h1>Recipe Box</h1>
+<div class="text-center">
+  <h1 class="recipe-heading">Recipe Box</h1>
 
-<h2>Dishes:</h2>
-<ul>
-  <% @dishes.each do |dish| %>
-  <li>
-    <a href="/dishes/<%=dish.id%>"><%=dish.name%></a>
-  </li>
-  <%end%>
-</ul>
+  <div class="dishes">
+    <h2>Dishes:</h2>
+    <ul class="list-unstyled">
+      <% @dishes.each do |dish| %>
+      <li>
+        <a href="/dishes/<%=dish.id%>"><%=dish.name%></a>
+      </li>
+      <%end%>
+    </ul>
+  </div>
 
-<a href="/dishes/new">Add a new dish</a>
-<br></br>
+  <div class="buttons">
+    <a href="/dishes/new" class="btn btn-primary">Add a new dish</a>
 
-<a href="/recipes/all" >View all recipes by rating</a>
+    <a href="/recipes/all" class="btn btn-success">View all recipes by rating</a>
 
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Search recipes by ingredient
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <% @ingredients.each do |ingredient|%>
-      <li><a href="/ingredients/<%= ingredient.last %>"><%= ingredient.first %></a></li>
-    <% end %>
-  </ul>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Search recipes by ingredient
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <% @ingredients.each do |ingredient|%>
+          <li><a href="/ingredients/<%= ingredient.last %>"><%= ingredient.first %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>

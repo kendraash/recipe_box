@@ -1,6 +1,6 @@
-<h2><%= @recipe.name %></h2>
+<h2 class="text-center recipe-heading"><%= @recipe.name %></h2>
 
-<table class="table">
+<table class="table table-striped">
   <tr>
     <th>Ingredients</th>
     <th>Measurement</th>
@@ -13,9 +13,11 @@
   <% end %>
 </table>
 
-<p><strong>Category:</strong> <%= @recipe.category %></p>
-<p><strong>Rating:</strong> <%= @recipe.category %></p>
+  <p class="category"><strong>Category:</strong> <%= @recipe.category %></p>
+  <p class="category"><strong>Rating:</strong> <%= @recipe.category %></p>
 
-<a href="/recipes/<%=@recipe.id%>/edit" class='btn btn-primary'>Edit Recipe</a>
-<a href="/recipes/<%=@recipe.id%>/delete" class='btn btn-primary'>Delete Recipe</a>
-<a href="/" class='btn btn-primary'>Home</a>
+<div class="text-center nav-buttons">
+  <a href="/recipes/<%=@recipe.id%>/edit" class='btn btn-warning'>Edit Recipe</a>
+  <a href="/recipes/<%=@recipe.id%>/delete" class='btn btn-danger'>Delete Recipe</a>
+  <a href="/" class='btn btn-primary'>Home</a>
+</div>
