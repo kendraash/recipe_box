@@ -2,10 +2,13 @@
 
 <ul>
   <% @recipes.each do |recipe| %>
-    <li><a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a></li>
+    <li>
+      <a href="/recipes/<%= recipe.id %>"><%= recipe.name %></a>
+    </li>
   <% end %>
 </ul>
 
+<a href="/dishes/<%=@dish.id%>/delete" class="btn btn-primary">Delete</a>
 <a href="/dishes/<%=@dish.id%>/recipes/new">Add a Recipe</a><br>
 
 <a href="/">Home</a>

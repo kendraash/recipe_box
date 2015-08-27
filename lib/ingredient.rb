@@ -4,6 +4,7 @@ class Ingredient < ActiveRecord::Base
 
   has_and_belongs_to_many :recipes
   validates :name, presence: true
+  before_save(:downcase_name)
 
   define_singleton_method(:find_recipe) do |ing_name|
     recipes = Recipe.all
@@ -16,6 +17,9 @@ class Ingredient < ActiveRecord::Base
       end
     end
     filtered_arr
+  end
+  define_method(:downcase_name) do
+    self.name=(name().downcase())
   end
 
   # before_save(:to_array)

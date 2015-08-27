@@ -3,7 +3,9 @@
 <h2>Dishes:</h2>
 <ul>
   <% @dishes.each do |dish| %>
-  <li><a href="/dishes/<%=dish.id%>"><%=dish.name%></a></li>
+  <li>
+    <a href="/dishes/<%=dish.id%>"><%=dish.name%></a>
+  </li>
   <%end%>
 </ul>
 
@@ -19,7 +21,7 @@
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
     <% @ingredients.each do |ingredient|%>
-      <li><a href="/ingredients/<%= ingredient.id %>"><%= ingredient.name %></a></li>
+      <li><a href="/ingredients/<%= ingredient.last %>"><%= ingredient.first %></a></li>
     <% end %>
   </ul>
 </div>
